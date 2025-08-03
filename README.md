@@ -4,7 +4,7 @@ Journal structuré, status codés, log par jour et interface sans distraction.
 ---
 ## Fonctionnalités
 - Ajout de tâches avec détails : type, contenu, email, téléphone.
-- statuts : 'PENDING4, 'QUEUED", 'ACTIVE', 'DONE', 'DROPPED', 'FAILED'
+- statuts : 'PENDING', 'QUEUED", 'ACTIVE', 'DONE', 'DROPPED', 'FAILED'
 - Deadlines par priorité : Urgent / Prioritaire / Normal / Souple.
 - Fichier '.csv' journalier par date.
 - Interface modifiable manuellement, légère et lisible.
