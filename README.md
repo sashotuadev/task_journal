@@ -1,8 +1,11 @@
 # Journal de tâches
+
 Application minimaliste GTK pour la gestion quotidienne des tâches, conçue pour fonctionner en environement Linux/Windows.
 Journal structuré, status codés, log par jour et interface sans distraction.
 ---
+
 ## Fonctionnalités
+
 - Ajout de tâches avec détails : type, contenu, email, téléphone.
 - statuts : 'PENDING', 'QUEUED", 'ACTIVE', 'DONE', 'DROPPED', 'FAILED'
 - Deadlines par priorité : Urgent / Prioritaire / Normal / Souple.
@@ -10,12 +13,16 @@ Journal structuré, status codés, log par jour et interface sans distraction.
 - Interface modifiable manuellement, légère et lisible.
 - Radio-Button pour mise à jour statut
 ---
+
 ## Exécution
+
 ** Linux/Windows** : lancer 'log-day.py' avec python3
 
 ** version compilé '.exe ' disponible sur demande**
+---
 
 **LICENCE**
+
 Version: BUILT/001 
 Copyright © 2025 DEV_SASHOTUA- Tous droits réservés.
 
