@@ -12,7 +12,8 @@ Journal structuré, status codés, log par jour et interface sans distraction.
 ---
 ## Exécution
 ** Linux/Windows** : lancer 'log-day.py' avec python3
-** version compilé '.exe ' disponible sur demande
+
+** version compilé '.exe ' disponible sur demande**
 
 **LICENCE**
 Version: BUILT/001 
