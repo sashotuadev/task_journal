@@ -1,5 +1,4 @@
 #!/usr/bin/env python3
-#._core_ops/scripts/log_day.py
 
 import tkinter as tk
 from tkinter import messagebox, simpledialog, ttk
@@ -123,32 +122,28 @@ class LogApp:
         self.phone.set("")
         self.deadline.set(DEADLINE_LEVELS[0])
 
-    def load_tasks(self):
-        self.task_listbox.delete(0, tk.END)
-        if not os.path.isfile(FILENAME):
-            return
+def load_tasks(self):
+    self.task_listbox.delete(0, tk.END)
+    if not os.path.isfile(FILENAME):
+        return
 
-        grouped = {}
+    with open(FILENAME, newline='') as f:
+        reader = csv.DictReader(f)
+        for row in reader:
+            if row['status'] in ["PENDING", "QUEUED", "ACTIVE"]:
+                date = row['date']
+                time = row['time']
+                task_type = row.get("type", "-")
+                phone = row.get("phone", "-")
+                mail = row.get("email", "-")
+                content_preview = row.get("content", "")[:400]
+                deadline = row.get("deadline", "Normal (cette semaine)")
+                status = row.get("status", "PENDING")
 
-        with open(FILENAME, newline='') as f:
-            reader = csv.DictReader(f)
-            for row in reader:
-                if row['status'] in ["PENDING", "QUEUED", "ACTIVE"]:
-                    date = row['date']
-                    grouped.setdefault(date, []).append(row)
+                line = f"[{status}] {date} {time} | {task_type} - {phone} - {mail} - {content_preview}"
+                self.task_listbox.insert(tk.END, line)
+                self.task_listbox.itemconfig(tk.END, {'fg': DEADLINE_COLORS.get(deadline, 'black')})
 
-            for date in sorted(grouped.keys()):
-                    header = f"** {date} **"
-                    self.task_listbox.insert(tk.END, header)
-                    self.task_listbox.itemconfig(tk.END, {'fg': 'black'})
-
-            for row in grouped[date]:
-                    phone = row.get("phone", "-")
-                    mail = row.get("email", "-")
-                    content_preview = row.get("content", "") [:400]
-                    line = f"[{row['status']}] {row['type']} - {phone} - {mail} - {content_preview} "
-                    self.task_listbox.insert(tk.END, line)
-                    self.task_listbox.itemconfig(tk.END, {'fg': DEADLINE_COLORS.get(row.get('deadline'), 'black')})
 
     def modify_status(self, event):
         idx = self.task_listbox.curselection()
